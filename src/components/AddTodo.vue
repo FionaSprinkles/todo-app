@@ -1,7 +1,15 @@
 <script setup>
     import { ref } from 'vue'
 
-    const todos = ref([])
+    const loadTodos = () => {
+        try {
+            return JSON.parse(localStorage.getItem('todos') ?? '[]')
+            } catch {
+            return []
+        }
+    }
+
+    const todos = ref(loadTodos())
 
     const title = ref('')
     const description = ref('')
