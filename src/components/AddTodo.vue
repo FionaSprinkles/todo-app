@@ -1,14 +1,41 @@
+<script setup>
+    import { ref } from 'vue'
+
+    const todos = ref([])
+
+    const title = ref('')
+    const description = ref('')
+    const time = ref('')
+    const deadline = ref('')
+    const repeat = ref('')
+
+    function addTodo() {
+        todos.value.push({ // add to the todos array
+            title: title.value, //add title value to new todos object
+            description: description.value,
+            time: time.value,
+            deadline: deadline.value,
+            repeat: repeat.value
+
+        })
+
+        localStorage.setItem('todos', JSON.stringify(todos.value))
+    }
+
+</script>
+
 <template>
 
-    <form>
-        <input id="title" type="text" placeholder="Title">
+    <form @submit.prevent="addTodo">
+
+        <input id="title" type="text" placeholder="Title" v-model="title">
 
         <textarea
-        id="description" placeholder="Description">
+        id="description" placeholder="Description" v-model="description">
         </textarea>
 
         <label for="time">Estimated time to finish task</label>
-        <select id="time" placeholder="Estimated time to finish task">
+        <select id="time" placeholder="Estimated time to finish task" v-model="time">
             <option value="5">5 minutes</option>
             <option value="10">10 minutes</option>
             <option value="15">15 minutes</option>
@@ -17,18 +44,18 @@
         </select>
 
         <label for="deadline">Deadline</label>
-        <input id="deadline" type="date">
+        <input id="deadline" type="date" v-model="deadline">
 
             <fieldset>
         <legend>Repeat task?</legend>
 
         <label>
-            <input type="radio" name="repeat" value="yes">
+            <input type="radio" name="repeat" value="yes" v-model="repeat">
             Yes
         </label>
 
         <label>
-            <input type="radio" name="repeat" value="no">
+            <input type="radio" name="repeat" value="no" v-model="repeat">
             No
         </label>
         </fieldset>
