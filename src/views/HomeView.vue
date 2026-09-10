@@ -1,9 +1,16 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import Hello from '../components/Hello.vue'
+import ChooseOne from '../components/ChooseOne.vue'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <Hello />
+    <ChooseOne />
+
+     <RouterLink to="/addTodo">
+      Add new Todo
+    </RouterLink>
   </main>
+
 </template>
