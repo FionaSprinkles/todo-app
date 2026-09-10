@@ -8,6 +8,8 @@
     const time = ref('')
     const deadline = ref('')
     const repeat = ref('')
+    const repeatSchedule = ref('')
+    const taskList = ref('')
 
     function addTodo() {
         todos.value.push({ // add to the todos array
@@ -15,7 +17,9 @@
             description: description.value,
             time: time.value,
             deadline: deadline.value,
-            repeat: repeat.value
+            repeat: repeat.value,
+            repeatSchedule: repeatSchedule.value,
+            taskList: taskList.value
 
         })
 
@@ -60,7 +64,16 @@
         </label>
         </fieldset>
 
-        <select id="task-list">
+        <div v-if="repeat === 'yes'"> <!--"===" both value and datatype MUST be the same -->
+            <select id="repeatSchedule" v-model="repeatSchedule">
+                <option value="daily">Every day</option>
+                <option value="weekly">Every week</option>
+                <option value="monthly">Every month</option>
+                <option value="yearly">Every year</option>
+            </select>
+        </div>
+
+        <select id="taskList" v-model="taskList">
             <option value="">Choose a list</option>
             <option value="chores">Everyday chores</option>
             <option value="school">School</option>
