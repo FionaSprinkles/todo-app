@@ -4,6 +4,13 @@ import { ref } from 'vue'
 const todos = ref(
     JSON.parse(localStorage.getItem('todos')) || [] //import from AddTodo.vue
 )
+
+function deleteTodo(todo) {
+    todos.value = todos.value.filter(item => item !== todo)
+
+    localStorage.setItem('todos', JSON.stringify(todos.value))
+}
+
 </script>
 
 <template>
@@ -29,6 +36,10 @@ const todos = ref(
             <p v-if="todo.repeat === 'yes'">
                 Schedule: {{ todo.repeatSchedule }}
             </p>
+
+            <button @click="deleteTodo(todo)">
+                Delete
+            </button>
         </li>
     </ul>
 </template>
