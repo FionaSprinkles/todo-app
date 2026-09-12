@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import AddTodoView from'../views/AddTodoView.vue'
+import AddTodoView from '../views/AddTodoView.vue'
+import MyTodosView from '../views/MyTodosView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,6 +15,11 @@ const router = createRouter({
       path: '/addTodo',
       name: 'Add todo',
       component: AddTodoView
+    },
+    {
+      path: '/myTodos',
+      name: 'My Todos',
+      component: MyTodosView
     },
   ],
 })

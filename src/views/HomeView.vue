@@ -8,9 +8,13 @@ import ChooseOne from '../components/ChooseOne.vue'
     <Hello />
     <ChooseOne />
 
-     <RouterLink to="/addTodo">
-      Add new Todo
-    </RouterLink>
+      <RouterLink to="/addTodo">
+        Add new Todo
+      </RouterLink>
+    
+      <RouterLink to="/myTodos">
+        My Todos
+      </RouterLink>
   </main>
 
 </template>
