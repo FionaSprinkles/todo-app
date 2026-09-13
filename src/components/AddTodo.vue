@@ -40,14 +40,14 @@
 
     <form @submit.prevent="addTodo">
 
-        <input id="title" type="text" placeholder="Title" v-model="title">
+        <input id="title" type="text" placeholder="Title" v-model="title" required>
 
         <textarea
         id="description" placeholder="Description" v-model="description">
         </textarea>
 
         <label for="time">Estimated time to finish task</label>
-        <select id="time" v-model="time">
+        <select id="time" v-model="time" required>
             <option value="5">5 minutes</option>
             <option value="10">10 minutes</option>
             <option value="15">15 minutes</option>
