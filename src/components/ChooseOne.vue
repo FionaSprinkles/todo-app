@@ -31,7 +31,10 @@ function finishTodo() {
 
     localStorage.setItem('todos', JSON.stringify(todos.value))
 
-    router.push('/')
+    selectedTodo.value = null
+    lockedIn.value = false
+
+    chooseTodos()
 }
 
 chooseTodos()
@@ -71,14 +74,12 @@ chooseTodos()
 
 <style scoped>
 
-h1 {
-    text-align: center;
-}
 
 .todo-card {
-    max-width: 500px;
+    width: 400px;
+    max-width: 90%;
     margin: 20px auto;
-    padding: 20px;
+    padding: 25px;
     border: 1px solid #ddd;
     border-radius: 12px;
 }
@@ -87,20 +88,8 @@ h1 {
     background-color: purple;
 }
 
-.todo-card h2 {
-    margin: 0 0 10px;
-}
 
-.todo-card p {
-    margin: 0;
-}
 
-button {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 25px;
-    border: none;
-    border-radius: 8px;
-}
+
 
 </style>
