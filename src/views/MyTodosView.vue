@@ -5,5 +5,9 @@
 <template>
     <main>
         <MyTodos/>
+        
+        <RouterLink to="/">
+            Todo
+        </RouterLink>
     </main>
 </template>
