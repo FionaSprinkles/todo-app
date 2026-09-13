@@ -47,7 +47,7 @@
         </textarea>
 
         <label for="time">Estimated time to finish task</label>
-        <select id="time" placeholder="Estimated time to finish task" v-model="time">
+        <select id="time" v-model="time">
             <option value="5">5 minutes</option>
             <option value="10">10 minutes</option>
             <option value="15">15 minutes</option>
@@ -93,3 +93,45 @@
     
     </form>
 </template>
+
+<style scoped>
+
+form {
+    width: 500px;
+    max-width: 90%;
+    margin: 30px auto;
+    padding: 20px;
+    background: purple;
+    color: white;
+    border-radius: 10px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+button {
+    padding: 10px 20px;
+    background: #5027b1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+fieldset label {
+    display: inline;
+}
+fieldset input {
+    width: auto;
+    margin-bottom: 0;
+}
+
+</style>

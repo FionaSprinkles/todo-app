@@ -48,7 +48,8 @@ function saveTodo() {
 <template>
     <h1>My todos</h1>
 
-    <ul>
+    
+        <ul class="todo-list">
         <li
             v-for="todo in todos"
             :key="todo.title"
@@ -175,18 +176,35 @@ h1 {
     text-align: center;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-    max-width: 700px;
+.todo-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+
+    width: 1200px;
+    max-width: 90%;
+
     margin: 0 auto;
+    padding: 0;
+
+    list-style: none;
 }
 
-li {
+.todo-list li {
     border: 1px solid #ddd;
     border-radius: 12px;
     padding: 20px;
-    margin-bottom: 20px;
 }
 
+@media (max-width: 900px) {
+    .todo-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .todo-list {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
